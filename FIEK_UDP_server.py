@@ -16,7 +16,7 @@ print("UDP serveri eshte gati per te marre kerkese.")
 
 
 def IPADRESA():
-  return("IpAdresa e Klientit eshte: "+ address[0])
+  return("Ip Adresa e Klientit eshte: "+ address[0])
 
 def NUMRIPORTIT():
   return("Numri i Portit eshte:"+str(address[1]))
@@ -37,8 +37,8 @@ def BASHKETINGELLORE(teksti):
   pergjigjja = "Teksti permban "+str(num)+" bashketingellore"
   return pergjigjja
 
-def PRINTIMI(fjalia):
-  fjaliaP = fjalia.strip()
+def PRINTIMI(teksti):
+  fjaliaP = teksti.strip()
   return fjaliaP
 
 def KOHA():
@@ -80,7 +80,7 @@ def KONVERTIMI(teksti, num):
   elif(teksti=="LitersToGallons"):
    return str(num/3.78541)
   else:
-   return("Nuk eshte dhene nenmetoda e duhur.")
+   return("Nuk eshte dhene nje opsion valid.")
 
 def VALIDEMAIL(teksti):
   if (("@" in teksti) and ("." in teksti) and 
@@ -93,7 +93,7 @@ def PERSERITJA(teksti1):
   teksti = teksti1.upper()
   num = 0
   for i in teksti:
-    if teksti.count(i)>=2:
+    if teksti.count(i)>=2 and i!=' ':
       num += 1
       teksti=teksti.replace(i,"")
   return ("Numri i shkronjave qe perseriten ne tekst jane: "+str(num))
