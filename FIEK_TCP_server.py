@@ -26,17 +26,16 @@ class ThreadedServer(object):
             print(str(address[0])+" u lidh ne portin: "+str(address[1]) + ".")
 
 def handle_client(socketKlienti, address):
+
  def IPADRESA():
-  return("IpAdresa e Klientit eshte: "+ address[0])
+  return("Ip Adresa e Klientit eshte: "+ address[0])
 
  def NUMRIPORTIT():
   return("Numri i Portit eshte:"+str(address[1]))
 
-
  def EMRIKOMPJUTERIT():
   EmriHostit = socket.gethostname()
   return("Emri i kompjuterit ose i Hostit eshte:"+EmriHostit)
-
 
  def BASHKETINGELLORE(teksti):
   bashketingelloret = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'y', 'z',
@@ -48,8 +47,8 @@ def handle_client(socketKlienti, address):
   pergjigjja = "Teksti permban "+str(num)+" bashketingellore"
   return pergjigjja
 
- def PRINTIMI(fjalia):
-  fjaliaP = fjalia.strip()
+ def PRINTIMI(teksti):
+  fjaliaP = teksti.strip()
   return fjaliaP
 
  def KOHA():
@@ -91,7 +90,7 @@ def handle_client(socketKlienti, address):
   elif(teksti=="LitersToGallons"):
    return str(num/3.78541)
   else:
-   return("Nuk eshte dhene nenmetoda e duhur.")
+   return("Nuk eshte dhene nje opsion valid.")
 
  def VALIDEMAIL(teksti):
   if (("@" in teksti) and ("." in teksti) and 
@@ -104,7 +103,7 @@ def handle_client(socketKlienti, address):
   teksti = teksti1.upper()
   num = 0
   for i in teksti:
-    if teksti.count(i)>=2:
+    if teksti.count(i)>=2 and i!=' ':
       num += 1
       teksti=teksti.replace(i,"")
   return ("Numri i shkronjave qe perseriten ne tekst jane: "+str(num))
@@ -151,7 +150,3 @@ def handle_client(socketKlienti, address):
 if __name__ == "__main__":
     port_num = 12000
     ThreadedServer('',port_num).listen() 
-
-
-
-
